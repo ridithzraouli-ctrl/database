@@ -1,26 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Enter Access Code</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCESS TERMINAL</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#0a0a0a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:400px;
+    background:#151515;
+    border:1px solid #2d2d2d;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,0,0,.6);
+}
+
+h1{
+    margin-bottom:10px;
+    font-size:30px;
+}
+
+.subtitle{
+    color:#9c9c9c;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#242424;
+    color:white;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#message{
+    margin-top:18px;
+    color:#ff5a5a;
+}
+</style>
 </head>
+
 <body>
-    <h1>Enter the Access Code</h1>
 
-    <input type="text" id="code" placeholder="Code">
-    <button onclick="checkCode()">Submit</button>
+<div class="container">
 
-    <p id="message"></p>
+<h1>ACCESS TERMINAL</h1>
 
-    <script>
-        function checkCode() {
-            const code = document.getElementById("code").value;
+<p class="subtitle">
+Enter the access code to continue.
+</p>
 
-            if (code === "PIZZA42") {
-                window.location.href = "https://your-next-website.com";
-            } else {
-                document.getElementById("message").textContent = "Incorrect code.";
-            }
-        }
-    </script>
+<input
+id="code"
+type="text"
+placeholder="Access Code">
+
+<button onclick="checkCode()">
+Continue
+</button>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+function checkCode(){
+
+const code=document.getElementById("code").value;
+
+if(code==="PIZZA42"){
+
+window.location.href="https://example.com";
+
+}else{
+
+document.getElementById("message").textContent="Incorrect access code.";
+
+}
+
+}
+</script>
+
 </body>
 </html>
