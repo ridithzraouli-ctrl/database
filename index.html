@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Access Code</title>
+</head>
+<body>
+    <h1>Enter the Access Code</h1>
+
+    <input type="text" id="code" placeholder="Code">
+    <button onclick="checkCode()">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById("code").value;
+
+            if (code === "PIZZA42") {
+                window.location.href = "https://your-next-website.com";
+            } else {
+                document.getElementById("message").textContent = "Incorrect code.";
+            }
+        }
+    </script>
+</body>
+</html>
