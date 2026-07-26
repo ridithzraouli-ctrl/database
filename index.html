@@ -4,153 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Record Database</title>
+<title>Central Records Database</title>
 
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'JetBrains Mono', monospace;
+body{
+    margin:0;
+    background:#eef2f5;
+    font-family:'Roboto',sans-serif;
+    color:#222;
 }
 
-body{
-background:#070707;
-color:#d9d9d9;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-padding:20px;
+.header{
+    background:#1d3557;
+    color:white;
+    padding:18px;
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
 }
 
 .container{
-width:100%;
-max-width:420px;
-background:#101010;
-border:1px solid #2f2f2f;
-padding:28px;
-border-radius:12px;
-box-shadow:0 0 40px rgba(0,0,0,.8);
+    max-width:420px;
+    margin:50px auto;
+    background:white;
+    border:1px solid #cfd8dc;
+    border-radius:6px;
+    padding:25px;
 }
 
-h1{
-font-size:24px;
-margin-bottom:6px;
-letter-spacing:2px;
+h2{
+    margin-top:0;
+    color:#1d3557;
 }
 
-.subtitle{
-color:#8c8c8c;
-font-size:13px;
-margin-bottom:25px;
-line-height:1.6;
+p{
+    color:#555;
 }
 
-.line{
-height:1px;
-background:#2a2a2a;
-margin:18px 0;
+label{
+    font-weight:500;
 }
 
 input{
-width:100%;
-padding:14px;
-background:#191919;
-border:1px solid #333;
-border-radius:8px;
-color:white;
-font-size:15px;
-outline:none;
-margin-bottom:15px;
-}
-
-input:focus{
-border-color:#777;
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:18px;
+    border:1px solid #b0bec5;
+    border-radius:4px;
+    font-size:16px;
 }
 
 button{
-width:100%;
-padding:14px;
-background:#d9d9d9;
-color:#111;
-border:none;
-border-radius:8px;
-font-size:15px;
-font-weight:bold;
-cursor:pointer;
+    width:100%;
+    padding:12px;
+    background:#1d3557;
+    color:white;
+    border:none;
+    border-radius:4px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 button:hover{
-opacity:.9;
+    background:#27496d;
 }
 
 #message{
-margin-top:20px;
-min-height:22px;
-color:#b8b8b8;
-white-space:pre-line;
+    margin-top:20px;
+    color:#b00020;
+    font-weight:500;
 }
 
 .footer{
-margin-top:28px;
-font-size:11px;
-color:#666;
-line-height:1.6;
+    margin-top:35px;
+    font-size:12px;
+    color:#777;
+    text-align:center;
 }
-
-.blink{
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{
-opacity:0;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
+<div class="header">
+CENTRAL RECORDS DATABASE
+</div>
+
 <div class="container">
 
-<h1>RECORD DATABASE<span class="blink">_</span></h1>
+<h2>Record Search</h2>
 
-<p class="subtitle">
-ARCHIVE NODE 04<br>
-Record Retrieval System
-</p>
+<p>Enter a Record ID to retrieve an archived file.</p>
 
-<div class="line"></div>
+<label>Record ID</label>
 
 <input
 id="code"
 type="text"
-placeholder="Record ID">
+placeholder="Example: REC-0001">
 
 <button onclick="checkCode()">
-RETRIEVE
+Search
 </button>
 
 <p id="message"></p>
 
-<div class="line"></div>
-
 <div class="footer">
-
-STATUS: ONLINE<br>
-
-DATABASE VERSION: 7.14.2<br>
-
-AUTHORISED PERSONNEL ONLY
-
+Archive System v2.6.4<br>
+Authorised Personnel Only
 </div>
 
 </div>
@@ -159,13 +123,35 @@ AUTHORISED PERSONNEL ONLY
 
 function checkCode(){
 
-let code=document.getElementById("code").value.trim().toUpperCase();
-
-let message=document.getElementById("message");
+const code=document.getElementById("code").value.trim().toUpperCase();
 
 switch(code){
 
-case "R-1438":
+case "PIZZA1":
+window.location.href="pizza1.html";
+break;
 
-message.innerHTML=
-"
+case "PIZZA2":
+window.location.href="pizza2.html";
+break;
+
+case "PIZZA3":
+window.location.href="pizza3.html";
+break;
+
+default:
+document.getElementById("message").textContent="No record found.";
+}
+
+}
+
+document.getElementById("code").addEventListener("keypress",function(e){
+if(e.key==="Enter"){
+checkCode();
+}
+});
+
+</script>
+
+</body>
+</html>
