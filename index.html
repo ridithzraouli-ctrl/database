@@ -3,122 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACCESS TERMINAL</title>
+
+<title>Record Database</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'JetBrains Mono', monospace;
 }
 
 body{
-    background:#0a0a0a;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    padding:20px;
+background:#070707;
+color:#d9d9d9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+padding:20px;
 }
 
 .container{
-    width:100%;
-    max-width:400px;
-    background:#151515;
-    border:1px solid #2d2d2d;
-    border-radius:18px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,0,0,.6);
+width:100%;
+max-width:420px;
+background:#101010;
+border:1px solid #2f2f2f;
+padding:28px;
+border-radius:12px;
+box-shadow:0 0 40px rgba(0,0,0,.8);
 }
 
 h1{
-    margin-bottom:10px;
-    font-size:30px;
+font-size:24px;
+margin-bottom:6px;
+letter-spacing:2px;
 }
 
 .subtitle{
-    color:#9c9c9c;
-    margin-bottom:30px;
+color:#8c8c8c;
+font-size:13px;
+margin-bottom:25px;
+line-height:1.6;
+}
+
+.line{
+height:1px;
+background:#2a2a2a;
+margin:18px 0;
 }
 
 input{
-    width:100%;
-    padding:15px;
-    border:none;
-    outline:none;
-    border-radius:12px;
-    background:#242424;
-    color:white;
-    font-size:16px;
-    margin-bottom:15px;
+width:100%;
+padding:14px;
+background:#191919;
+border:1px solid #333;
+border-radius:8px;
+color:white;
+font-size:15px;
+outline:none;
+margin-bottom:15px;
+}
+
+input:focus{
+border-color:#777;
 }
 
 button{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:white;
-    color:black;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+width:100%;
+padding:14px;
+background:#d9d9d9;
+color:#111;
+border:none;
+border-radius:8px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-    opacity:.9;
+opacity:.9;
 }
 
 #message{
-    margin-top:18px;
-    color:#ff5a5a;
+margin-top:20px;
+min-height:22px;
+color:#b8b8b8;
+white-space:pre-line;
 }
+
+.footer{
+margin-top:28px;
+font-size:11px;
+color:#666;
+line-height:1.6;
+}
+
+.blink{
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:0;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>ACCESS TERMINAL</h1>
+<h1>RECORD DATABASE<span class="blink">_</span></h1>
 
 <p class="subtitle">
-Enter the access code to continue.
+ARCHIVE NODE 04<br>
+Record Retrieval System
 </p>
+
+<div class="line"></div>
 
 <input
 id="code"
 type="text"
-placeholder="Access Code">
+placeholder="Record ID">
 
 <button onclick="checkCode()">
-Continue
+RETRIEVE
 </button>
 
 <p id="message"></p>
 
+<div class="line"></div>
+
+<div class="footer">
+
+STATUS: ONLINE<br>
+
+DATABASE VERSION: 7.14.2<br>
+
+AUTHORISED PERSONNEL ONLY
+
+</div>
+
 </div>
 
 <script>
+
 function checkCode(){
 
-const code=document.getElementById("code").value;
+let code=document.getElementById("code").value.trim().toUpperCase();
 
-if(code==="PIZZA42"){
+let message=document.getElementById("message");
 
-window.location.href="https://example.com";
+switch(code){
 
-}else{
+case "R-1438":
 
-document.getElementById("message").textContent="Incorrect access code.";
-
-}
-
-}
-</script>
-
-</body>
-</html>
+message.innerHTML=
+"
